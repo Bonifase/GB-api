@@ -1,4 +1,5 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
+import bcrypt from 'bcrypt';
 
 const schema = new mongoose.Schema(
     {
@@ -15,5 +16,9 @@ const schema = new mongoose.Schema(
     },
     { timestamps: true }
   );
+
+  schema.method.isValidPassword = function isValidPassword(password){
+      return bcrypt.compareSync(password, this.passwordHash);
+  }
 
 export default mongoose.model('User', schema);
