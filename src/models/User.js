@@ -17,8 +17,10 @@ const schema = new mongoose.Schema(
     { timestamps: true }
   );
 
-  schema.method.isValidPassword = function isValidPassword(password){
+  schema.methods.isValidPassword = function isValidPassword(password){
       return bcrypt.compareSync(password, this.passwordHash);
-  }
+  };
+
+  schema.methods.toAuthJSON
 
 export default mongoose.model('User', schema);
