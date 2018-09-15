@@ -15,6 +15,7 @@
     "bluebird": "^3.5.2",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.2.14",
     "node-env-file": "^0.1.8",
     "nodemon": "^1.18.4"
