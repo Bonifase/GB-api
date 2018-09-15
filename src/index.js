@@ -1,12 +1,20 @@
 import express from 'express';
+import path from 'path';
+import mongoose from 'mongoose';
+import bodyParser from 'body-parser';
+import auth from './routes/auth';
+
 
 const app = express();
+mongoose.connect('mongodb://localhost/gameboard', { useNewUrlParser: true });
 
-app.post("/api/auth", (req, res) => {
-    res.status(400).json({ errors: { global: "Invalid credentials" } })
-});
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
-app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
-});
+app.use(auth);
+  
+
+// Routes which should handle requests
+app.use("/api/auth", auth);
+
 app.listen(8080, () => console.log("Running on localhost:8080"));
