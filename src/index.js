@@ -2,11 +2,13 @@ import express from 'express';
 import path from 'path';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
+import dotenv from 'dotenv';
 import auth from './routes/auth';
 
 
+dotenv.config();
 const app = express();
-mongoose.connect('mongodb://localhost/gameboard', { useNewUrlParser: true });
+mongoose.connect(process.env.MONGO_DB_URL, { useNewUrlParser: true });
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

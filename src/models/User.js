@@ -25,7 +25,7 @@ const schema = new mongoose.Schema(
   schema.methods.generateJWT = function generateJWT(){
       return  jwt.sign({
           email: this.email
-      }, 'secretkey')
+      }, process.env.JWT_SECRET)
   };
 
   schema.methods.toAuthJSON = function toAuthJSON(){
