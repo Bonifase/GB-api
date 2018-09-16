@@ -3,6 +3,7 @@ import path from 'path';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
+import cors from "cors";
 import Promise from 'bluebird';
 import auth from './routes/auth';
 
@@ -10,6 +11,7 @@ import auth from './routes/auth';
 
 dotenv.config();
 const app = express();
+app.use(cors());
 // mangoose.Promise = Promise;
 mongoose.connect(process.env.MONGO_DB_URL, { useNewUrlParser: true });
 
