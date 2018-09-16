@@ -22,4 +22,6 @@ app.use(auth);
 // Routes which should handle requests
 app.use("/api/auth", auth);
 
-app.listen(8080, () => console.log("Running on localhost:8080"));
+app.listen(process.env.PORT || 5000, function() {
+    console.log("Server started on port 5000");
+});
