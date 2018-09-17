@@ -46,6 +46,6 @@ schema.methods.toAuthJSON = function toAuthJSON(){
           token: this.generateJWT()
       }
   };
-schema.plugin(uniqueValidator, { message: "This email is already take, try a different email"})
+schema.plugin(uniqueValidator, { message: "This email is already taken, try a different email"})
 
 export default mongoose.model('User', schema);
