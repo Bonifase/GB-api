@@ -8,7 +8,7 @@ router.post('/', (req, res) => {
     const user = new User({username, email});
     user.setPassword(password);
     user.save()
-      .catch(err => res.json());   
+      .catch(err => res.json({ err }));   
 });
 
 export default router;   
