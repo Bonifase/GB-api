@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "8.11.3"
+  },
   "scripts": {
     "start": "nodemon --exec babel-node -- src/index.js"
   },
@@ -14,10 +17,13 @@
     "bcrypt": "^3.0.0",
     "bluebird": "^3.5.2",
     "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "jsonwebtoken": "^8.3.0",
+    "lodash": "^4.17.11",
     "mongoose": "^5.2.14",
+    "mongoose-unique-validator": "^2.0.1",
     "node-env-file": "^0.1.8",
     "nodemon": "^1.18.4"
   }
