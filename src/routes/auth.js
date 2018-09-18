@@ -1,5 +1,6 @@
 import express from 'express';
 import User from '../models/User';
+import { sendResetPasswordEmail } from "../mailer";
 
 const router = express.Router();
 
