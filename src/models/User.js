@@ -33,9 +33,19 @@ schema.methods.setPassword = function setPassword(password){
     this.passwordHash = bcrypt.hashSync(password, 10);
 };
 
+schema.methods.setConfirmationToken = function setConfirmationToken(){
+    this.confirmationToken = this.generateJWT();
+};
+
+schema.methods.generateConfirmationUrl = function generateConfirmationUrl(){
+    return `${process.env.HOST}/confirmation/${this.confirmationToken}`;
+};
+
 schema.methods.generateJWT = function generateJWT(){
       return  jwt.sign({
-          email: this.email
+          email: this.email,
+          username: this.username,
+          confirmed: this.confirmed
       }, process.env.JWT_SECRET)
   };
 
@@ -46,6 +56,6 @@ schema.methods.toAuthJSON = function toAuthJSON(){
           token: this.generateJWT()
       }
   };
-schema.plugin(uniqueValidator, { message: "This email is already take, try a different email"})
+schema.plugin(uniqueValidator, { message: "This email is already taken, try a different email"})
 
 export default mongoose.model('User', schema);

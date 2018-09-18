@@ -26,6 +26,8 @@ app.use(auth);
 app.use("/api/auth", auth);
 app.use("/api/users", users);
 
-app.listen(process.env.PORT || 5000, function() {
-    console.log("Server started on port 5000");
-});
+app.get("/*", (req, res) => {
+    res.sendFile(path.join(__dirname, "index.html"));
+  });
+  
+app.listen(5000, () => console.log("Running on localhost:5000"));
