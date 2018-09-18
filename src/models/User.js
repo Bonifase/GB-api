@@ -41,6 +41,10 @@ schema.methods.generateConfirmationUrl = function generateConfirmationUrl(){
     return `${process.env.HOST}/confirmation/${this.confirmationToken}`;
 };
 
+schema.methods.generateResetPasswordLink = function generateResetPasswordLink(){
+    return `${process.env.HOST}/reset-password/${this.generateRPT()}`;
+};
+
 schema.methods.generateJWT = function generateJWT(){
       return  jwt.sign({
           email: this.email,
@@ -48,6 +52,13 @@ schema.methods.generateJWT = function generateJWT(){
           confirmed: this.confirmed
       }, process.env.JWT_SECRET)
   };
+
+schema.methods.generateRPT= function generateRPT(){
+    return  jwt.sign({
+        _id: this._id
+    }, process.env.JWT_SECRET,
+     { expiresIn: "1s"});
+};
 
 schema.methods.toAuthJSON = function toAuthJSON(){
       return {

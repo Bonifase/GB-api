@@ -24,7 +24,8 @@ export function sendConfirmationEmail(user){
         `
     };
 
-    transport.sendMail(email); 
+    transport.sendMail(email);
+} 
 export function sendResetPasswordEmail(user){
     const transport = setup();
     const email = {
@@ -38,5 +39,4 @@ export function sendResetPasswordEmail(user){
         };
     
     transport.sendMail(email); 
-}
 }
