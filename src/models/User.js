@@ -38,11 +38,11 @@ schema.methods.setConfirmationToken = function setConfirmationToken(){
 };
 
 schema.methods.generateConfirmationUrl = function generateConfirmationUrl(){
-    return `https://web-game-board-api.herokuapp.com/confirmation/${this.confirmationToken}`;
+    return `https://web-game-board.herokuapp.com/confirmation/${this.confirmationToken}`;
 };
 
 schema.methods.generateResetPasswordLink = function generateResetPasswordLink(){
-    return `https://web-game-board-api.herokuapp.com/reset-password/${this.generateRPT()}`;
+    return `https://web-game-board.herokuapp.com/reset-password/${this.generateRPT()}`;
 };
 
 schema.methods.generateJWT = function generateJWT(){
