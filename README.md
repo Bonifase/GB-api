@@ -1,6 +1,6 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/b473657bb09c33f80689/maintainability)](https://codeclimate.com/github/Bonifase/Game-board-api/maintainability)
 
-# Game Board api
+# [Game Board api](https://twitter.com/BonifaseOrwa?lang=en)
 
 > Game-Board Backend server with ExpressJS and use babel to use latest and greatest JS
 

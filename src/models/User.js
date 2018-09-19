@@ -38,7 +38,11 @@ schema.methods.setConfirmationToken = function setConfirmationToken(){
 };
 
 schema.methods.generateConfirmationUrl = function generateConfirmationUrl(){
-    return `${process.env.HOST}/confirmation/${this.confirmationToken}`;
+    return `https://web-game-board.herokuapp.com/confirmation/${this.confirmationToken}`;
+};
+
+schema.methods.generateResetPasswordLink = function generateResetPasswordLink(){
+    return `https://web-game-board.herokuapp.com/reset_password/${this.generateRPT()}`;
 };
 
 schema.methods.generateJWT = function generateJWT(){
@@ -48,6 +52,13 @@ schema.methods.generateJWT = function generateJWT(){
           confirmed: this.confirmed
       }, process.env.JWT_SECRET)
   };
+
+schema.methods.generateRPT= function generateRPT(){
+    return  jwt.sign({
+        _id: this._id
+    }, process.env.JWT_SECRET,
+     { expiresIn: "1h"});
+};
 
 schema.methods.toAuthJSON = function toAuthJSON(){
       return {

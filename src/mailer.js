@@ -24,5 +24,19 @@ export function sendConfirmationEmail(user){
         `
     };
 
-    transport.sendMail(email); 
+    transport.sendMail(email);
 } 
+export function sendResetPasswordEmail(user){
+    const transport = setup();
+    const email = {
+            from: '"Gameboard" <info@gameboard.com',
+            to: user.email,
+            subject: "Reset Password",
+            text: `
+            To reset password, follow this link.
+            ${user.generateResetPasswordLink()}
+            `
+        };
+    
+    transport.sendMail(email); 
+}
