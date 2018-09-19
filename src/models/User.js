@@ -42,7 +42,7 @@ schema.methods.generateConfirmationUrl = function generateConfirmationUrl(){
 };
 
 schema.methods.generateResetPasswordLink = function generateResetPasswordLink(){
-    return `https://web-game-board.herokuapp.com/reset-password/${this.generateRPT()}`;
+    return `https://web-game-board.herokuapp.com/reset_password/${this.generateRPT()}`;
 };
 
 schema.methods.generateJWT = function generateJWT(){
