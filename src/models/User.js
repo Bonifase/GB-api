@@ -57,7 +57,7 @@ schema.methods.generateRPT= function generateRPT(){
     return  jwt.sign({
         _id: this._id
     }, process.env.JWT_SECRET,
-     { expiresIn: "1s"});
+     { expiresIn: "1h"});
 };
 
 schema.methods.toAuthJSON = function toAuthJSON(){
