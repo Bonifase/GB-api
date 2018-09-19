@@ -26,7 +26,7 @@ app.use(auth);
 app.use("/api/auth", auth);
 app.use("/api/users", users);
 
-app.listen(5000, function() {
+app.listen(process.env.PORT || 5000, function() {
     console.log("Server started on port 5000");
 });
 
