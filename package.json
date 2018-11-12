@@ -7,7 +7,8 @@
     "node": "8.11.3"
   },
   "scripts": {
-    "start": "nodemon --exec babel-node -- src/index.js"
+    "start": "nodemon --exec babel-node -- src/index.js",
+    "test": "mocha -- src/**/tests/*.js"
   },
   "author": "Bonifase",
   "license": "ISC",
@@ -17,11 +18,14 @@
     "bcrypt": "^3.0.0",
     "bluebird": "^3.5.2",
     "body-parser": "^1.18.3",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.0",
     "cors": "^2.8.4",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "jsonwebtoken": "^8.3.0",
     "lodash": "^4.17.11",
+    "mocha": "^5.2.0",
     "mongoose": "^5.2.14",
     "mongoose-unique-validator": "^2.0.1",
     "node-env-file": "^0.1.8",
