@@ -63,6 +63,7 @@ schema.methods.generateRPT= function generateRPT(){
 schema.methods.toAuthJSON = function toAuthJSON(){
       return {
           email: this.email,
+          username: this.username,
           confirmed: this.confirmed,
           token: this.generateJWT()
       }
