@@ -23,6 +23,7 @@ router.get('/current_user', authenticate,  (req, res) => {
     user: {
       username: req.currentUser.username,
       email: req.currentUser.email,
+      username: req.currentUser.username,
       confirmed: req.currentUser.confirmed
     }});
 });
